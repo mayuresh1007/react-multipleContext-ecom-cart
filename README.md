@@ -1,8 +1,14 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# cart functionality multiple contextapi
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ ecom cart functionality multiple contextapi
+ this shows how to maintain state all over app and how to set multiple context Provider
+
+ used fackapi https://fakestoreapi.com/
+ to get the data 
+## Screenshots
+
+![App Screenshot](https://github.com/mayuresh1007/react-multipleContext-ecom-cart/blob/ba870397283fc16c58f9f14983e59508bab76916/ecomContext.png)
+
+![App Screenshot](https://github.com/mayuresh1007/react-multipleContext-ecom-cart/blob/ba870397283fc16c58f9f14983e59508bab76916/cart.png)
