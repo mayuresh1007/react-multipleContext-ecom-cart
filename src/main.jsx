@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ProductList from "./components/ProductList.jsx";
 import About from "./components/About.jsx";
 import Cart from "./components/Cart.jsx";
+import CheckOut from "./components/CheckOut.jsx";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+       
       },
     ],
   },

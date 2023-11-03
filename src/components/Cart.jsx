@@ -1,10 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import { CartContext } from "../context/Appcontext";
 import Card from "react-bootstrap/Card";
+import CheckOut from "./CheckOut";
+import { Link, Outlet } from "react-router-dom";
 
 const Cart = () => {
   const { cart, setCart } = useContext(CartContext);
+  const [open, setOpen] = useState(false);
   const TotalPrice = cart.reduce((acc, curr) => {
     return (acc += curr.price);
   }, 0);
@@ -16,6 +19,11 @@ const Cart = () => {
     const udpateCart = cart.filter((item) => item.id !== id);
     setCart(udpateCart);
   };
+
+  const OpenCheckOut = () => {
+    setOpen(!open);
+  };
+
   return (
     <div className="mt-5 container">
       <div className="mt-5 d-inline-flex flex-wrap py-1">
@@ -36,10 +44,6 @@ const Cart = () => {
               <hr />
               <Card.Title>{item.title}</Card.Title>
               <Card.Title>{item.price}</Card.Title>
-              {/* <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text> */}
             </Card.Body>
             <Button
               className="mx-2"
@@ -52,8 +56,56 @@ const Cart = () => {
           </Card>
         ))}
       </div>
+      <Button
+        className="mx-2"
+        variant="outline-info"
+        size="sm"
+        onClick={() => OpenCheckOut()}
+      >
+        Check Out page
+      </Button>
+      {open && <CheckOut TotalPrice={TotalPrice} />}
+      {/* <Outlet/> */}
     </div>
   );
 };
 
 export default Cart;
+
+/**
+ * 
+ * <div className="mt-5 d-inline-flex flex-wrap py-1">
+        <h4>Total Price:-{TotalPrice}</h4>
+        {cart.map((item) => (
+          <Card
+            key={item.id}
+            className="mx-2 "
+            border="dark"
+            style={{ width: "14rem" }}
+          >
+            <Card.Body>
+              <Card.Img
+                style={{ width: "120px", height: "100px" }}
+                variant="top"
+                src={item.image}
+              />
+              <hr />
+              <Card.Title>{item.title}</Card.Title>
+              <Card.Title>{item.price}</Card.Title>
+               <Card.Text>
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </Card.Text> 
+              </Card.Body>
+              <Button
+                className="mx-2"
+                variant="outline-danger"
+                size="sm"
+                onClick={() => removeFromCart(item.id)}
+              >
+                Remove from Cart
+              </Button>
+            </Card>
+          ))}
+        </div>
+ */
