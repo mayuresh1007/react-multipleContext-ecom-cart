@@ -18,7 +18,7 @@ function App() {
     try {
       axios.get("https://fakestoreapi.com/products").then((res) => {
         setProductList(res.data);
-        console.log(res.data.length);
+        // console.log(res.data.length);
       });
     } catch (error) {
       console.log(error);

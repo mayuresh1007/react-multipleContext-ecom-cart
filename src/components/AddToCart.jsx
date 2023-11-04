@@ -1,22 +1,36 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import { CartContext } from "../context/Appcontext";
 const AddToCart = ({ product }) => {
   const { cart, setCart } = useContext(CartContext);
-
-  const addtocart = () => {
-    // console.log("addtocart");
-    const newCartItem = product;
-    // console.log("product", newCartItem);
-    setCart([...cart, newCartItem]);
+  
+  // console.log(cart);
+  const addToCart = (product) => {
+    const existingProduct = cart.find((item) => item.id === product.id);
+    if (existingProduct) {
+      console.log("Product with ID", product.id, "is already in the cart.");
+      // Increment the quantity of the existing product
+      existingProduct.quantity += 1;
+      setCart([...cart]); // Update the cart to trigger a re-render
+    } else {
+      console.log("Product with ID", product.id, "is not in the cart.");
+      const newItem = {
+        ...product,
+        quantity: 1,
+      };
+      setCart([...cart, newItem]); // Add a new item to the cart
+    }
+    console.log(cart)
+   
   };
+  
   return (
     <>
       <Button
         className="mx-2"
         variant="outline-success"
         size="sm"
-        onClick={() => addtocart()}
+        onClick={() => addToCart(product)}
       >
         Add to Cart
       </Button>

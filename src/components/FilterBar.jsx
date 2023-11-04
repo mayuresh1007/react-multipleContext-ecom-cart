@@ -30,7 +30,7 @@ const FilterBar = () => {
       (products) => products.category === item
     );
     setFilteredItems(filterProductlist);
-    console.log(filterProductlist);
+    // console.log(filterProductlist);
   };
   return (
     <>
