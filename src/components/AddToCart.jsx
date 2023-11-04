@@ -4,9 +4,10 @@ import { CartContext } from "../context/Appcontext";
 const AddToCart = ({ product }) => {
   const { cart, setCart } = useContext(CartContext);
   
-  // console.log(cart);
   const addToCart = (product) => {
+    
     const existingProduct = cart.find((item) => item.id === product.id);
+    console.log(existingProduct)
     if (existingProduct) {
       console.log("Product with ID", product.id, "is already in the cart.");
       // Increment the quantity of the existing product
