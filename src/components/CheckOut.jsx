@@ -1,66 +1,69 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { CartContext } from "../context/Appcontext";
 
 const CheckOut = ({ TotalPrice }) => {
   const { cart } = useContext(CartContext);
-  //   (() => {
-  //     "use strict";
-  //     // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  //     const forms = document.querySelectorAll(".needs-validation");
-  //     // Loop over them and prevent submission
-  //     Array.from(forms).forEach((form) => {
-  //       form.addEventListener(
-  //         "submit",
-  //         (event) => {
-  //           if (!form.checkValidity()) {
-  //             event.preventDefault();
-  //             event.stopPropagation();
-  //           }
+  useEffect(() => {
+    (() => {
+      "use strict";
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      const forms = document.querySelectorAll(".needs-validation");
+      // Loop over them and prevent submission
+      Array.from(forms).forEach((form) => {
+        form.addEventListener(
+          "submit",
+          (event) => {
+            if (!form.checkValidity()) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
 
-  //           form.classList.add("was-validated");
-  //         },
-  //         false
-  //       );
-  //     });
-  //   })();
+            form.classList.add("was-validated");
+          },
+          false
+        );
+      });
+    })();
+  }, []);
+
   return (
     <div>
-      {/* <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      {/* <div className="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
         <button
-          class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+          className="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
           id="bd-theme"
           type="button"
           aria-expanded="false"
           data-bs-toggle="dropdown"
           aria-label="Toggle theme (auto)"
         >
-          <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
+          <svg className="bi my-1 theme-icon-active" width="1em" height="1em">
             <use href="#circle-half"></use>
           </svg>
-          <span class="visually-hidden" id="bd-theme-text">
+          <span className="visually-hidden" id="bd-theme-text">
             Toggle theme
           </span>
         </button>
         <ul
-          class="dropdown-menu dropdown-menu-end shadow"
+          className="dropdown-menu dropdown-menu-end shadow"
           aria-labelledby="bd-theme-text"
         >
           <li>
             <button
               type="button"
-              class="dropdown-item d-flex align-items-center"
+              className="dropdown-item d-flex align-items-center"
               data-bs-theme-value="light"
               aria-pressed="false"
             >
               <svg
-                class="bi me-2 opacity-50 theme-icon"
+                className="bi me-2 opacity-50 theme-icon"
                 width="1em"
                 height="1em"
               >
                 <use href="#sun-fill"></use>
               </svg>
               Light
-              <svg class="bi ms-auto d-none" width="1em" height="1em">
+              <svg className="bi ms-auto d-none" width="1em" height="1em">
                 <use href="#check2"></use>
               </svg>
             </button>
@@ -68,19 +71,19 @@ const CheckOut = ({ TotalPrice }) => {
           <li>
             <button
               type="button"
-              class="dropdown-item d-flex align-items-center"
+              className="dropdown-item d-flex align-items-center"
               data-bs-theme-value="dark"
               aria-pressed="false"
             >
               <svg
-                class="bi me-2 opacity-50 theme-icon"
+                className="bi me-2 opacity-50 theme-icon"
                 width="1em"
                 height="1em"
               >
                 <use href="#moon-stars-fill"></use>
               </svg>
               Dark
-              <svg class="bi ms-auto d-none" width="1em" height="1em">
+              <svg className="bi ms-auto d-none" width="1em" height="1em">
                 <use href="#check2"></use>
               </svg>
             </button>
@@ -88,19 +91,19 @@ const CheckOut = ({ TotalPrice }) => {
           <li>
             <button
               type="button"
-              class="dropdown-item d-flex align-items-center active"
+              className="dropdown-item d-flex align-items-center active"
               data-bs-theme-value="auto"
               aria-pressed="true"
             >
               <svg
-                class="bi me-2 opacity-50 theme-icon"
+                className="bi me-2 opacity-50 theme-icon"
                 width="1em"
                 height="1em"
               >
                 <use href="#circle-half"></use>
               </svg>
               Auto
-              <svg class="bi ms-auto d-none" width="1em" height="1em">
+              <svg className="bi ms-auto d-none" width="1em" height="1em">
                 <use href="#check2"></use>
               </svg>
             </button>
@@ -109,332 +112,341 @@ const CheckOut = ({ TotalPrice }) => {
       </div> */}
 
       <main className="container">
-        <div class="py-5 text-center">
+        <div className="py-5 text-center">
           <h2>Checkout form</h2>
         </div>
 
-        <div class="row g-5">
-          <div class="col-md-5 col-lg-4 order-md-last">
-            <h4 class="d-flex justify-content-between align-items-center mb-3">
-              <span class="text-primary">Your cart</span>
-              <span class="badge bg-primary rounded-pill">{cart.length}</span>
+        <div className="row g-5">
+          <div className="col-md-5 col-lg-4 order-md-last">
+            <h4 className="d-flex justify-content-between align-items-center mb-3">
+              <span className="text-primary">Your cart</span>
+              <span className="badge bg-primary rounded-pill">
+                {cart.length}
+              </span>
             </h4>
-            <ul class="list-group mb-3">
+            <ul className="list-group mb-3">
               {cart.map((item) => (
                 <li
                   key={item.id}
-                  class="list-group-item d-flex justify-content-between lh-sm"
+                  className="list-group-item d-flex justify-content-between lh-sm"
                 >
                   <div>
-                    <h6 class="my-0">{item.title}</h6>
-                    <small class="text-body-secondary">Brief description</small>
+                    <h6 className="my-0">{item.title}</h6>
+                    <small className="text-body-secondary">
+                      Brief description
+                    </small>
                   </div>
-                  <span class="text-body-secondary">{item.price}</span>
+                  <span className="text-body-secondary">{item.price}</span>
                 </li>
               ))}
 
-              <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
-                <div class="text-success">
-                  <h6 class="my-0">Promo code</h6>
+              <li className="list-group-item d-flex justify-content-between bg-body-tertiary">
+                <div className="text-success">
+                  <h6 className="my-0">Promo code</h6>
                   <small>EXAMPLECODE</small>
                 </div>
-                <span class="text-success">−$5</span>
+                <span className="text-success">−$5</span>
               </li>
-              <li class="list-group-item d-flex justify-content-between">
+              <li className="list-group-item d-flex justify-content-between">
                 <span>Total (USD)</span>
                 <strong>{TotalPrice}</strong>
               </li>
             </ul>
 
-            <form class="card p-2">
-              <div class="input-group">
+            <form className="card p-2">
+              <div className="input-group">
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Promo code"
                 />
-                <button type="submit" class="btn btn-secondary">
+                <button type="submit" className="btn btn-secondary">
                   Redeem
                 </button>
               </div>
             </form>
           </div>
-          <div class="col-md-7 col-lg-8">
-            <h4 class="mb-3">Billing address</h4>
-            <form class="needs-validation" novalidate>
-              <div class="row g-3">
-                <div class="col-sm-6">
-                  <label for="firstName" class="form-label">
+          <div className="col-md-7 col-lg-8">
+            <h4 className="mb-3">Billing address</h4>
+            <form className="needs-validation" noValidate>
+              <div className="row g-3">
+                <div className="col-sm-6">
+                  <label htmlFor="firstName" className="form-label">
                     First name
                   </label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="firstName"
                     placeholder=""
                     value=""
                     required
                   />
-                  <div class="invalid-feedback">
+                  <div className="invalid-feedback">
                     Valid first name is required.
                   </div>
                 </div>
 
-                <div class="col-sm-6">
-                  <label for="lastName" class="form-label">
+                <div className="col-sm-6">
+                  <label htmlFor="lastName" className="form-label">
                     Last name
                   </label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="lastName"
                     placeholder=""
                     value=""
                     required
                   />
-                  <div class="invalid-feedback">
+                  <div className="invalid-feedback">
                     Valid last name is required.
                   </div>
                 </div>
 
-                <div class="col-12">
-                  <label for="username" class="form-label">
+                <div className="col-12">
+                  <label htmlFor="username" className="form-label">
                     Username
                   </label>
-                  <div class="input-group has-validation">
-                    <span class="input-group-text">@</span>
+                  <div className="input-group has-validation">
+                    <span className="input-group-text">@</span>
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       id="username"
                       placeholder="Username"
                       required
                     />
-                    <div class="invalid-feedback">
+                    <div className="invalid-feedback">
                       Your username is required.
                     </div>
                   </div>
                 </div>
 
-                <div class="col-12">
-                  <label for="email" class="form-label">
-                    Email <span class="text-body-secondary">(Optional)</span>
+                <div className="col-12">
+                  <label htmlFor="email" className="form-label">
+                    Email{" "}
+                    <span className="text-body-secondary">(Optional)</span>
                   </label>
                   <input
                     type="email"
-                    class="form-control"
+                    className="form-control"
                     id="email"
                     placeholder="you@example.com"
                   />
-                  <div class="invalid-feedback">
+                  <div className="invalid-feedback">
                     Please enter a valid email address for shipping updates.
                   </div>
                 </div>
 
-                <div class="col-12">
-                  <label for="address" class="form-label">
+                <div className="col-12">
+                  <label htmlFor="address" className="form-label">
                     Address
                   </label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="address"
                     placeholder="1234 Main St"
                     required
                   />
-                  <div class="invalid-feedback">
+                  <div className="invalid-feedback">
                     Please enter your shipping address.
                   </div>
                 </div>
 
-                <div class="col-12">
-                  <label for="address2" class="form-label">
+                <div className="col-12">
+                  <label htmlFor="address2" className="form-label">
                     Address 2{" "}
-                    <span class="text-body-secondary">(Optional)</span>
+                    <span className="text-body-secondary">(Optional)</span>
                   </label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="address2"
                     placeholder="Apartment or suite"
                   />
                 </div>
 
-                <div class="col-md-5">
-                  <label for="country" class="form-label">
+                <div className="col-md-5">
+                  <label htmlFor="country" className="form-label">
                     Country
                   </label>
-                  <select class="form-select" id="country" required>
+                  <select className="form-select" id="country" required>
                     <option value="">Choose...</option>
                     <option>United States</option>
                   </select>
-                  <div class="invalid-feedback">
+                  <div className="invalid-feedback">
                     Please select a valid country.
                   </div>
                 </div>
 
-                <div class="col-md-4">
-                  <label for="state" class="form-label">
+                <div className="col-md-4">
+                  <label htmlFor="state" className="form-label">
                     State
                   </label>
-                  <select class="form-select" id="state" required>
+                  <select className="form-select" id="state" required>
                     <option value="">Choose...</option>
                     <option>California</option>
                   </select>
-                  <div class="invalid-feedback">
+                  <div className="invalid-feedback">
                     Please provide a valid state.
                   </div>
                 </div>
 
-                <div class="col-md-3">
-                  <label for="zip" class="form-label">
+                <div className="col-md-3">
+                  <label htmlFor="zip" className="form-label">
                     Zip
                   </label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="zip"
                     placeholder=""
                     required
                   />
-                  <div class="invalid-feedback">Zip code required.</div>
+                  <div className="invalid-feedback">Zip code required.</div>
                 </div>
               </div>
 
-              <hr class="my-4" />
+              <hr className="my-4" />
 
-              <div class="form-check">
+              <div className="form-check">
                 <input
                   type="checkbox"
-                  class="form-check-input"
+                  className="form-check-input"
                   id="same-address"
                 />
-                <label class="form-check-label" for="same-address">
+                <label className="form-check-label" htmlFor="same-address">
                   Shipping address is the same as my billing address
                 </label>
               </div>
 
-              <div class="form-check">
+              <div className="form-check">
                 <input
                   type="checkbox"
-                  class="form-check-input"
+                  className="form-check-input"
                   id="save-info"
                 />
-                <label class="form-check-label" for="save-info">
+                <label className="form-check-label" htmlFor="save-info">
                   Save this information for next time
                 </label>
               </div>
 
-              <hr class="my-4" />
+              <hr className="my-4" />
 
-              <h4 class="mb-3">Payment</h4>
+              <h4 className="mb-3">Payment</h4>
 
-              <div class="my-3">
-                <div class="form-check">
+              <div className="my-3">
+                <div className="form-check">
                   <input
                     id="credit"
                     name="paymentMethod"
                     type="radio"
-                    class="form-check-input"
+                    className="form-check-input"
                     checked
                     required
                   />
-                  <label class="form-check-label" for="credit">
+                  <label className="form-check-label" htmlFor="credit">
                     Credit card
                   </label>
                 </div>
-                <div class="form-check">
+                <div className="form-check">
                   <input
                     id="debit"
                     name="paymentMethod"
                     type="radio"
-                    class="form-check-input"
+                    className="form-check-input"
                     required
                   />
-                  <label class="form-check-label" for="debit">
+                  <label className="form-check-label" htmlFor="debit">
                     Debit card
                   </label>
                 </div>
-                <div class="form-check">
+                <div className="form-check">
                   <input
                     id="paypal"
                     name="paymentMethod"
                     type="radio"
-                    class="form-check-input"
+                    className="form-check-input"
                     required
                   />
-                  <label class="form-check-label" for="paypal">
+                  <label className="form-check-label" htmlFor="paypal">
                     PayPal
                   </label>
                 </div>
               </div>
 
-              <div class="row gy-3">
-                <div class="col-md-6">
-                  <label for="cc-name" class="form-label">
+              <div className="row gy-3">
+                <div className="col-md-6">
+                  <label htmlFor="cc-name" className="form-label">
                     Name on card
                   </label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="cc-name"
                     placeholder=""
                     required
                   />
-                  <small class="text-body-secondary">
+                  <small className="text-body-secondary">
                     Full name as displayed on card
                   </small>
-                  <div class="invalid-feedback">Name on card is required</div>
+                  <div className="invalid-feedback">
+                    Name on card is required
+                  </div>
                 </div>
 
-                <div class="col-md-6">
-                  <label for="cc-number" class="form-label">
+                <div className="col-md-6">
+                  <label htmlFor="cc-number" className="form-label">
                     Credit card number
                   </label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="cc-number"
                     placeholder=""
                     required
                   />
-                  <div class="invalid-feedback">
+                  <div className="invalid-feedback">
                     Credit card number is required
                   </div>
                 </div>
 
-                <div class="col-md-3">
-                  <label for="cc-expiration" class="form-label">
+                <div className="col-md-3">
+                  <label htmlFor="cc-expiration" className="form-label">
                     Expiration
                   </label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="cc-expiration"
                     placeholder=""
                     required
                   />
-                  <div class="invalid-feedback">Expiration date required</div>
+                  <div className="invalid-feedback">
+                    Expiration date required
+                  </div>
                 </div>
 
-                <div class="col-md-3">
-                  <label for="cc-cvv" class="form-label">
+                <div className="col-md-3">
+                  <label htmlFor="cc-cvv" className="form-label">
                     CVV
                   </label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="cc-cvv"
                     placeholder=""
                     required
                   />
-                  <div class="invalid-feedback">Security code required</div>
+                  <div className="invalid-feedback">Security code required</div>
                 </div>
               </div>
 
-              <hr class="my-4" />
+              <hr className="my-4" />
 
-              <button class="w-100 btn btn-primary btn-lg" type="submit">
+              <button className="w-100 btn btn-primary  mb-5" type="submit">
                 Continue to checkout
               </button>
             </form>

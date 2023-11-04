@@ -5,7 +5,6 @@ import Badge from "react-bootstrap/Badge";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../context/Appcontext";
-import Cart from "./Cart";
 
 const NavBar = () => {
   const { cart } = useContext(CartContext);
@@ -17,7 +16,7 @@ const NavBar = () => {
   return (
     <Navbar expand="lg fixed-top" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">CRUD-shop</Navbar.Brand>
+        <Navbar.Brand href="#home">YOUR-shop</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
