@@ -1,18 +1,9 @@
+import { useEffect, useState } from "react";
 import Toast from "react-bootstrap/Toast";
 
 const About = () => {
   return (
     <div className="container mt-5">
-      {/* <h3>About page</h3> */}
-      {/* <Toast>
-        <Toast.Header>
-          <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
-          <strong className="me-auto">About Me</strong>
-          <small>11 mins ago</small>
-        </Toast.Header>
-        <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
-      </Toast> */}
-
       <section className="py-3 py-md-5">
         <div className="container">
           <div className="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center">
@@ -21,7 +12,7 @@ const About = () => {
                 className="img-fluid rounded"
                 loading="lazy"
                 src="https://avatars.githubusercontent.com/u/77499509?s=400&u=c91141df8296531ac37e16964400c6731e9a6c01&v=4"
-                alt="About 1"
+                alt="img loading"
               />
             </div>
             <div className="col-12 col-lg-6 col-xl-7">

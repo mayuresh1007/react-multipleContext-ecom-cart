@@ -6,9 +6,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ProductList from "./components/ProductList.jsx";
-import About from "./components/About.jsx";
+// import About from "./components/About.jsx";
+// lazy load about component on route change
 import Cart from "./components/Cart.jsx";
-
+const About = React.lazy(() => import("./components/About.jsx"));
+import ErrorBoundary from "./components/ErrorBoundary.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -16,21 +18,26 @@ const router = createBrowserRouter([
     // loader: rootLoader,
     children: [
       {
-        path: "/",  
+        path: "/",
         element: <ProductList />,
       },
       {
-        path: "/products",  
+        path: "/products",
         element: <ProductList />,
       },
       {
         path: "/about",
-        element: <About />,
+        // element: <About />, // without lazy laod
+        element: (
+          <React.Suspense fallback={<h3>Loading about page</h3>}>
+            <About />
+          </React.Suspense>
+        ),
+        errorElement: <ErrorBoundary />,
       },
       {
         path: "/cart",
         element: <Cart />,
-       
       },
     ],
   },
