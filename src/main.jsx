@@ -4,13 +4,19 @@ import App from "./App.jsx";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Form, RouterProvider } from "react-router-dom";
 import ProductList from "./components/ProductList.jsx";
+
+import Cart from "./components/Cart.jsx";
+
+import ErrorBoundary from "./components/ErrorBoundary.jsx";
+import Formdemo from "./components/Formdemo.jsx";
 // import About from "./components/About.jsx";
 // lazy load about component on route change
-import Cart from "./components/Cart.jsx";
 const About = React.lazy(() => import("./components/About.jsx"));
-import ErrorBoundary from "./components/ErrorBoundary.jsx";
+
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -38,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/post",
+        element: <Formdemo />,
       },
     ],
   },

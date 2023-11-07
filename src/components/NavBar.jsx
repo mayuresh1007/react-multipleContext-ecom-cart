@@ -31,6 +31,9 @@ const NavBar = () => {
             <Link style={style} className="mx-2" to="/cart">
               Cart
             </Link>
+            <Link style={style} className="mx-2" to="/post">
+              demo Form
+            </Link>
             <Badge className="mx-2" bg="danger">
               {cart.length}
             </Badge>
